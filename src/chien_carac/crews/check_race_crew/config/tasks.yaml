@@ -1,0 +1,9 @@
+validation_race:
+  description: >
+    Vérifier si "{race}" est une race de chien existante.
+    Si ce n'est pas une race reconnue, donner une explication et demander une nouvelle entrée.
+  expected_output: >
+    Une réponse confirmant si la race existe (oui/non).
+    Si la réponse est non, expliquer pourquoi et demander une nouvelle saisie.
+  agent: verificateur_race
+  # human_input: true

@@ -6,6 +6,7 @@ from crewai.flow import Flow, listen, start, router, or_
 from chien_carac.crews.chien_crew.chien_crew import ChienCrew
 from chien_carac.crews.verifier_crew.verifier_crew import VerifierCrew
 from chien_carac.crews.fix_crew.fix_crew import FixCrew
+from chien_carac.crews.check_race_crew.check_race_crew import CheckRaceCrew
 from typing import List
 
 
@@ -37,21 +38,31 @@ class ChienFlow(Flow[ChienState]):
     """
 
     @start()
-    def choisir_race(self):
+    def start(self):
         """
-        📌 Étape 1 : Sélection aléatoire d'une race de chien.
-        
-        🔹 `@start()` signifie que cette méthode est le **point de départ** du flow.
-        🔹 Une race est choisie au hasard et stockée dans l'état du flow (`self.state`).
-        🔹 Une fois la race sélectionnée, **le flow passe automatiquement à l'étape suivante** 
-           qui est `generer_fiche()`, car elle utilise `@listen(choisir_race)`.
-        """
-        print("Choix d'une race de chien")
-        races_possibles = ["Labrador", "Berger Allemand", "Bulldog", "Chihuahua", "Golden Retriever"]
-        self.state.race = choice(races_possibles)
-        print(f"Race sélectionnée : {self.state.race}")
+        📌 Étape 1 : Demande à l'utilisateur de saisir une race de chien et vérifie son existence.
 
-    @listen(choisir_race)
+        🔹 L'utilisateur entre une race de chien.
+        🔹 L'agent 'verificateur_race' valide si elle existe.
+        🔹 Si la race est invalide, on redemande une nouvelle entrée.
+        """
+        race_validee = False
+        while not race_validee:
+            race_input = input("Veuillez entrer une race de chien : ").strip()
+            
+            result = CheckRaceCrew().crew().kickoff(inputs={"race": race_input})
+
+            if result.pydantic.Race:
+                self.state.race = race_input
+                print(f"✅ '{self.state.race}' est une race reconnue.")
+                race_validee = True
+            else:
+                print(f"❌ '{race_input}' n'est pas une race reconnue. {result.pydantic.Message}")
+                print("Veuillez entrer une nouvelle race.")
+            
+        return "generation_fiche"  # Passe à la génération de la fiche
+
+    @listen("start")
     def generer_fiche(self):
         """
         📌 Étape 2 : Génération de la fiche technique pour la race sélectionnée.

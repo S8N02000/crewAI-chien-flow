@@ -227,7 +227,7 @@ crewai flow plot
 
 Le **Flow CrewAI** est conçu pour orchestrer les différentes étapes :  
 
-1️⃣ **Choix d'une race de chien** 🎲  
+1️⃣ **écrire le nom d'une race de chien**  
 2️⃣ **Génération automatique** de la fiche descriptive 📝  
 3️⃣ **Vérification** de l’exactitude des informations ✅  
 4️⃣ **Correction automatique** des erreurs détectées ✏️  

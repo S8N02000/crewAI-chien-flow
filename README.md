@@ -45,6 +45,11 @@ Ce projet met en place un **pipeline intelligent** où des agents IA spécialis�
 │   │   │   ├── 📂 config/           # Configuration YAML des agents et tâches de correction
 │   │   │   │   ├── 📝 agents.yaml   # Définit l'agent correcteur
 │   │   │   │   ├── 📝 tasks.yaml    # Définit la tâche de correction
+│   │   ├── 📂 check_race_crew/      # Équipe responsable de la validation de la race de chien
+│   │   │   ├── 📝 check_race_crew.py # Définition des agents et tâches de validation de race
+│   │   │   ├── 📂 config/           # Configuration YAML des agents et tâches de validation
+│   │   │   │   ├── 📝 agents.yaml   # Définit l'agent vérificateur de race
+│   │   │   │   ├── 📝 tasks.yaml    # Définit la tâche de validation de race
 │   ├── 📂 config/                   # Contient les configurations globales du projet
 │   ├── 📝 main.py                   # Point d'entrée du programme et définition du Flow CrewAI
 ├── 📜 .env                          # Fichier de configuration des modèles IA (Ollama)

@@ -77,6 +77,8 @@ cd crewAI-chien-flow
 
 ## **2️⃣ Installer `uv` (Gestionnaire de dépendances CrewAI)**  
 
+[documentation officielle de `CrewAI`](https://docs.crewai.com/installation)
+
 ⚠️ **CrewAI utilise `uv` pour gérer les dépendances**, un outil plus rapide et efficace que `pip`.  
 
 📥 **Installation de `uv`** :

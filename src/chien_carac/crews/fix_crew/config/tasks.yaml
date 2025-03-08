@@ -1,0 +1,8 @@
+corriger_fiche_chien:
+  description: >
+    Corriger la fiche technique de la race {race} en fonction des erreurs signalées.
+    Voici la fiche : ```{fiche}```,
+    Liste des erreurs détectées : ```{list_error}```
+  expected_output: >
+    Une fiche complète et bien structurée sur la race demandée, mettant en avant ses particularités, ses besoins, et les meilleures pratiques pour son bien-être et son éducation.
+  agent: expert_chien

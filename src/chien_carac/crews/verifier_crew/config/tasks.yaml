@@ -1,0 +1,9 @@
+verifier_fiche_chien:
+  description: >
+    Vérifier la fiche générée et identifier les erreurs éventuelles.
+    vérifie chaque détail de la fiche pour s'assurer de sa qualité, chaque information doit être correcte et précise.
+    Race : ```{race}``` 
+    Fiche : ```{fiche}```
+  expected_output: >
+    Un objet Verif avec un booléen et une liste des erreurs détectées.
+  agent: expert_chien

@@ -1,0 +1,20 @@
+[project]
+name = "chien_carac"
+version = "0.1.0"
+description = "chien_carac using crewAI"
+authors = [{ name = "LOMBARD Nicolas", email = "you@example.com" }]
+requires-python = ">=3.10,<3.13"
+dependencies = [
+    "crewai[tools]>=0.102.0,<1.0.0",
+]
+
+[project.scripts]
+kickoff = "chien_carac.main:kickoff"
+plot = "chien_carac.main:plot"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.crewai]
+type = "flow"

@@ -1,0 +1,7 @@
+description_chien:
+  description: >
+    Générer une fiche des caractéristique détaillée sur la race de chien "{race}", incluant ses caractéristiques physiques et comportementales, les avantages et inconvénients de la race, ainsi que des conseils d’éducation, d’alimentation et de soins adaptés.
+  expected_output: >
+    Une fiche complète et bien structurée sur la race demandée, mettant en avant ses particularités, ses besoins, et les meilleures pratiques pour son bien-être et son éducation.
+    la fiche caractéristique doit la plus précise possible
+  agent: expert_chien

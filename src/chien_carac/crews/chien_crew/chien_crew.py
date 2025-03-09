@@ -1,12 +1,13 @@
 from crewai import Agent, Crew, Process, Task
 from crewai.project import CrewBase, agent, crew, task
 from pydantic import BaseModel
+from chien_carac.knowledge_loader import load_knowledge_sources
 
 class Dog(BaseModel):
     """
     Modèle de données représentant une fiche technique d'une race de chien.
     """
-    race: str
+    Race: str
     Features: str
     Disadvantages: str
     Education: str
@@ -58,4 +59,9 @@ class ChienCrew:
             verbose=True,  # Affichage des logs d'exécution
             language="fr",
             full_output=True,
+            knowledge_sources=load_knowledge_sources(),
+            embedder={
+                "provider": "ollama",
+                "config": {"model": "nomic-embed-text"}  # Modèle d'embedding utilisé par Ollama
+            }
         )

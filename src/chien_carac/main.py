@@ -9,7 +9,6 @@ from chien_carac.crews.fix_crew.fix_crew import FixCrew
 from chien_carac.crews.check_race_crew.check_race_crew import CheckRaceCrew
 from typing import List
 
-
 class ChienState(BaseModel):
     """
     Représente l'état du flow contenant les informations d'une fiche de chien.
@@ -140,7 +139,7 @@ class ChienFlow(Flow[ChienState]):
         with open("fiche_chien.json", "w", encoding="utf-8") as f:
             f.write(self.state.fiche)
         print("✅ Fiche sauvegardée avec succès.")
-
+        
 
 def kickoff():
     """
